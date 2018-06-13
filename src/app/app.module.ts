@@ -5,6 +5,7 @@ import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { TabsModule, AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { provideAuth } from 'angular2-jwt';
 
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
@@ -12,6 +13,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth/auth.service';
+import { ProfileComponent } from './profile/profile.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -23,15 +25,16 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    TabsModule.forRoot(),
-    AlertModule.forRoot()
+    TabsModule,
+    AlertModule
   ],
   providers: [
     AuthService,
@@ -39,7 +42,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
-    }
+    },
+    provideAuth({
+      tokenGetter: () => { return localStorage.getItem('token') }
+    })
   ],
   bootstrap: [AppComponent]
 })

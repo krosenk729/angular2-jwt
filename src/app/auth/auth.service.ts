@@ -11,6 +11,14 @@ export class AuthService {
 
   constructor(private http: Http, private router: Router) { }
 
+  getToken(): any {
+    return localStorage.getItem('token');
+  }
+
+  getUseRole(): string {
+    return jwtDecode(this.getToken()).scope;
+  }
+
   isAuthenticated(): boolean {
     return tokenNotExpired('token');
   }
@@ -25,7 +33,7 @@ export class AuthService {
 
   finishAuthentication(token): void {
     localStorage.setItem('token', token)
-    this.router.navigate(['home']);
+    this.router.navigate(['profile']);
   }
 
   logout(): void {

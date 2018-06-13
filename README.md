@@ -44,4 +44,15 @@ Step 1:
 + Create a logout method which removes the token from local storage
 + Provide buttons for Log In and Log Out in the home view and the toolbar 
 
+Step 2:
++ Create an `isAuthenticated` method in the `AuthService` which checks whether the user's JWT has expired (Hint: use angular2-jwt for this)
++ Conditionally hide and show the **Log In** and **Log Out** links based on whether the user's JWT is expired
+
+
+Step 3:
++ Use the payload from the JWT to generate a user profile
++ Display the user's gravatar, username, and email, along with the full JWT payload in the **Profile** view
+
+
+
 
