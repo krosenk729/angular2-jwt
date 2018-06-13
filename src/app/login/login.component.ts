@@ -13,22 +13,4 @@ export class LoginComponent {
 
   constructor(private auth: AuthService) { }
 
-  onLoginSubmit(credentials) {
-    this.auth.login(credentials)
-      .map(res => res.json())
-      .subscribe(
-        response => this.auth.finishAuthentication(response.token),
-        error => this.errorMessage = error.json().message
-      );
-  }
-
-  onSignupSubmit(credentials) {
-    this.auth.signup(credentials)
-      .map(res => res.json())
-      .subscribe(
-        response => this.auth.finishAuthentication(response.token),
-        error => this.errorMessage = error.json().message
-      );
-  }
-
 }

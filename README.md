@@ -1,6 +1,5 @@
-# Angular 2 Authentication for Front End Masters
+# Angular 2 Authentication for Front End Masters Using JWT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
 
@@ -26,3 +25,23 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+--------------------------
+
+## Implementing Authentication Challenges
+
+* Complete the `onLoginSubmit` and `onSignupSubmit` methods to make `POST` requests (sending the user's credentials) to the `api/users/authenticate` and `api/users` endpoints respectively
+* Provide a method in `auth.service.js` which saves the returned JWT in local storage
+* Create a `logout` method which removes the user's JWT from local storage
+* Provide buttons for **Log In** and **Log Out** in the home view and the toolbar
+
+
+Step 1:
++ Create a screen for login and signup
++ Make a POST request with the user’s credentials
++ Store the JWT that comes back in local storage
++ Create a logout method which removes the token from local storage
++ Provide buttons for Log In and Log Out in the home view and the toolbar 
+
+
