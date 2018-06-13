@@ -11,6 +11,10 @@ export class AuthService {
 
   constructor(private http: Http, private router: Router) { }
 
+  isAuthenticated(): boolean {
+    return tokenNotExpired('token');
+  }
+
   login(credentials): Observable<Response> {
     return this.http.post(`${API_URL}/users/authenticate`, credentials);
   }
@@ -26,6 +30,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 
 }
