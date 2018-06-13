@@ -13,4 +13,16 @@ export class LoginComponent {
 
   constructor(private auth: AuthService) { }
 
+  onLoginSubmit(credentials) {
+    // call the login method on the AuthService
+    // and call finishAuthentication if successful,
+    // or display an error if unsuccessful
+  }
+
+  onSignupSubmit(credentials) {
+    // call the signup method on the AuthService
+    // and call finishAuthentication if successful,
+    // or display an error if unsuccessful
+  }
+
 }
