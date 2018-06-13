@@ -14,15 +14,21 @@ export class LoginComponent {
   constructor(private auth: AuthService) { }
 
   onLoginSubmit(credentials) {
-    // call the login method on the AuthService
-    // and call finishAuthentication if successful,
-    // or display an error if unsuccessful
+    this.auth.login(credentials)
+      .map(res => res.json())
+      .subscribe(
+        response => this.auth.finishAuthentication(response.token),
+        error => this.errorMessage = error.json().message
+      );
   }
 
   onSignupSubmit(credentials) {
-    // call the signup method on the AuthService
-    // and call finishAuthentication if successful,
-    // or display an error if unsuccessful
+    this.auth.signup(credentials)
+      .map(res => res.json())
+      .subscribe(
+        response => this.auth.finishAuthentication(response.token),
+        error => this.errorMessage = error.json().message
+      );
   }
 
 }
