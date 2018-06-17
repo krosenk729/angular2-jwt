@@ -8,7 +8,7 @@
   <li class="list-group-item" *ngFor="let instructor of instructors">
     <div class="container">
       <div class="col-sm-1">
-        <img [src]="getGravatar(instructor.email)" alt="Gravatar">
+        <img [src]="instructor.gravatar" alt="Gravatar">
       </div>
       <div class="col-sm-11">
         <h3>{{ instructor.first_name + ' ' + instructor.last_name }}</h3>
