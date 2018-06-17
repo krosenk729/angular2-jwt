@@ -7,7 +7,7 @@ import { API_URL } from './../app.constants';
 import * as jwtDecode from 'jwt-decode';
 
 @Injectable()
-export class AuthService {
+export class RoleGuard {
 
   constructor(private http: Http, private router: Router) { }
 
@@ -39,10 +39,6 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
     this.router.navigate(['login']);
-  }
-
-  isAdmin(): boolean {
-    return jwtDecode(this.getToken()).scope === 'admin';
   }
 
 }

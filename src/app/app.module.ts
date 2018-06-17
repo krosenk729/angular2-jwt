@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth/auth.service';
 import { ProfileComponent } from './profile/profile.component';
+import { InstructorComponent } from './instructor/instructor.component';
+import { NewInstructorComponent } from './new-instructor/new-instructor.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -26,7 +28,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    InstructorComponent,
+    NewInstructorComponent
   ],
   imports: [
     BrowserModule,
