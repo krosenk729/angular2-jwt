@@ -8,13 +8,14 @@ import { TabsModule, AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { provideAuth } from 'angular2-jwt';
 
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { AuthGuard } from './auth/authguard.service';
+import { RoleGuard } from './auth/roleguard.service';
+import { AuthService } from './auth/auth.service';
+import { InstructorService } from './instructor/instructor.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AuthGuard } from './auth/authguard.service';
-import { RoleGuard } from './auth/roleguard.service';
-import { AuthService } from './auth/auth.service';
 import { ProfileComponent } from './profile/profile.component';
 import { InstructorComponent } from './instructor/instructor.component';
 import { NewInstructorComponent } from './new-instructor/new-instructor.component';
@@ -46,6 +47,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthService,
     AuthGuard,
     RoleGuard,
+    InstructorService,
     provideAuth({
       tokenGetter: () => { return localStorage.getItem('token') }
     })
