@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { InstructorService } from './instructor.service';
 import { Instructor } from './instructor';
-import 'rxjs/add/opperator/map';
+import 'rxjs';
 import * as md5 from 'md5';
-
 
 @Component({
     selector: 'app-instructor',

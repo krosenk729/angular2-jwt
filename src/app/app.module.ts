@@ -40,8 +40,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    TabsModule,
-    AlertModule
+    TabsModule.forRoot(),
+    AlertModule.forRoot()
   ],
   providers: [
     AuthService,

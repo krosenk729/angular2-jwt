@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { InstructorService } from '../instructor/instructor.service';
 import { Instructor } from '../instructor/instructor';
-import 'rxjs/add/opperator/map';
+import 'rxjs';
 
 
 @Component({
